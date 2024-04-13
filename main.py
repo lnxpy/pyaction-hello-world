@@ -16,12 +16,16 @@ def main(args: List[str]) -> None:
         args: STDIN arguments
     """
 
-    auth = Auth(token=io.read("github_token"))
+    token = io.read("github_token")
+    auth = Auth(token=token)
     auth.authenticate()
 
     repo = auth.github.get_repo(io.read("repository"))
     user_input = IssueForm(repo=repo, number=io.read("issue_number")).render()
 
+    logging.error(token, "pyaction")
+    logging.error(f"{token} | {len(token)}", "pyaction)
+    logging.error(io.read(), "pyaction")
     logging.error(user_input, "pyaction")
 
 
