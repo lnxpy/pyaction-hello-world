@@ -1,7 +1,12 @@
 import sys
 from typing import List
 
+from pyaction.auth import Auth
+from pyaction.issues import IssueForm
+
 from pyaction import io
+
+import logging
 
 
 def main(args: List[str]) -> None:
@@ -11,15 +16,13 @@ def main(args: List[str]) -> None:
         args: STDIN arguments
     """
 
-    # reading the `name` input parameter
-    name = io.read("name")
-    repo = io.read("repository")
-    token = io.read("github_token")
+    auth = Auth(token=io.read("github_token"))
+    auth.authenticate()
 
-    # writing the `phrase` greeting message to output
-    io.write({"phrase": f"name is {name} and repo is {repo} and token is {token}"})
+    repo = auth.github.get_repo(io.read("repository"))
+    user_input = IssueForm(repo=repo, number=io.read("issue_number")).render()
 
-    # Now, people can $echo `phrase`
+    logging.error(user_input, "pyaction")
 
 
 if __name__ == "__main__":

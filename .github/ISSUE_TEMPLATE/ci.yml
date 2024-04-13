@@ -1,0 +1,25 @@
+name: Text Summarization
+description: Summarize tens of paragraphs into a smaller amount of sections
+title: "AI: Text Summarization"
+labels: ["summarization", "ai"]
+body:
+  - type: textarea
+    attributes:
+      label: Text
+      description: Write or paste your text here
+      render: markdown
+    validations:
+      required: true
+  - type: dropdown
+    id: sentences
+    attributes:
+      label: Sentences
+      description: Select the amount of sentence(s) you want your text get summarized to
+      options:
+        - 2
+        - 4
+        - 6
+        - 8
+      default: 0
+    validations:
+      required: true

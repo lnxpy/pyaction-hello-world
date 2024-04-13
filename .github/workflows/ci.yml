@@ -1,9 +1,8 @@
 name: Greeting
 
 on:
-  push:
-    branches:
-      - main
+  issues:
+    types: [opened]
 
 jobs:
   Build:
@@ -17,6 +16,8 @@ jobs:
       - name: Providing variables
         id: provider
         uses: ./
+        with:
+          issue_number: ${{ github.event.issue.number }}
 
       - name: Echoing variables
         run: echo ${{ steps.provider.outputs.phrase }}
