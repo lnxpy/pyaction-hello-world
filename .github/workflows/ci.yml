@@ -18,6 +18,7 @@ jobs:
         uses: ./
         with:
           issue_number: ${{ github.event.issue.number }}
+          github_token: ${{ secrets.token }}
 
       - name: Echoing variables
         run: echo ${{ steps.provider.outputs.phrase }}

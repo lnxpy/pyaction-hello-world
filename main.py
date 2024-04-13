@@ -21,11 +21,11 @@ def main(args: List[str]) -> None:
     auth.authenticate()
 
     repo = auth.github.get_repo(io.read("repository"))
-    user_input = IssueForm(repo=repo, number=io.read("issue_number")).render()
+    user_input = IssueForm(repo=repo, number=int(io.read("issue_number"))).render()
 
     logging.error(token, "pyaction")
     logging.error(f"{token} | {len(token)}", "pyaction")
-    logging.error(io.read(), "pyaction")
+    logging.error(repo, "pyaction")
     logging.error(user_input, "pyaction")
 
 
