@@ -1,0 +1,22 @@
+name: Greeting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    name: Running the action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Providing variables
+        id: provider
+        uses: ./
+
+      - name: Echoing variables
+        run: echo ${{ steps.provider.outputs.phrase }}
