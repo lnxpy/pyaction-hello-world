@@ -24,7 +24,7 @@ def main(args: List[str]) -> None:
     user_input = IssueForm(repo=repo, number=io.read("issue_number")).render()
 
     logging.error(token, "pyaction")
-    logging.error(f"{token} | {len(token)}", "pyaction)
+    logging.error(f"{token} | {len(token)}", "pyaction")
     logging.error(io.read(), "pyaction")
     logging.error(user_input, "pyaction")
 
