@@ -11,7 +11,19 @@ def main(args: List[str]) -> None:
         args: STDIN arguments
     """
 
-    pass
+    # reading the `name` input parameter
+    name = io.read("name")
+    message = f"Hello {name}!"
+
+    # writing the `phrase` greeting message to output
+    io.write({"phrase": message})
+
+    # Now, people can $echo `phrase`
+
+
+    # debugging locally
+    # print(message)
+
 
 
 if __name__ == "__main__":
