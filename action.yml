@@ -20,3 +20,12 @@ inputs:
     description: The repository name in the form of "<owner>/<repo>"
     default: ${{ github.repository }}
     required: true
+
+  name:
+    required: false
+    description: the person/thing you want to greet
+    default: World
+
+outputs:
+  phrase:
+    description: output message
