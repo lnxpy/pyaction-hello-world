@@ -1,4 +1,4 @@
-name: Testing
+name: Greeting Action
 
 on:
   push:
@@ -6,12 +6,19 @@ on:
       - main
 
 jobs:
-  Test:
+  build:
     runs-on: ubuntu-latest
-    name: Testing the action
+    name: Running the action
+
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v4
 
-      - name: Running the action
+      - name: Running Hello-world
+        id: hello_world
         uses: ./
+        with:
+          name: Sadra
+
+      - name: Output
+        run: echo ${{ steps.hello_world.outputs.phrase }}
