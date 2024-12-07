@@ -1,6 +1,6 @@
 ## PyAction Hello World
 
-This actions says Hello to you!
+This actions says Hello to you.
 
 ### Usage
 
