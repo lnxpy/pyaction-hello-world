@@ -9,12 +9,13 @@ Example usage..
 ```
 
 ### Running Locally
-If you want to run this action locally, follow these steps.
+If you want to run this action locally, follow these steps:
+- Clone the repo and `cd` into it.
+- If you use `pip`:
+  - Run `pip install ".[cli]"`.
+  - Run `pyaction run`.
+- If you use `uv`:
+  - Run `uv sync --no-install-project --extra cli`.
+  - Run `uv run pyaction run`.
 
-* Clone the repo and `cd` into it.
-* Run `uv sync --no-install-project --extra cli`.
-* Create the `.env` file filled with the required input parameters.
-* Run `uv run pyaction run`.
-
-> [!TIP]
-> Check out [this guide](https://pyaction.imsadra.me/docs/concepts/local-running) if you need more details.
+Check out [this guide](https://pyaction.imsadra.me/docs/concepts/local-running) for more information about action local execution.
